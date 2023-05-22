@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="checkstyle.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>HR_Airlines</title>
+
+<script>
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getrecord.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script> 
+
+</head>
+<body style="background-color: burlywood;">
+	 <div class="row">
+    <div class="col-md-12">
+        <nav>
+        <a href="Home.php"><b style="font-family: Cursive;">HR Airlines</b></a>
+        <a href="Home.php">Home</a>
+        <a href="ContactUs.php">Contact</a>
+        <a href="About.html">About</a>
+        <a href="insert_booking.php">Booking Online</a>
+        <a href="logout.php">login</a>
+        <a href="register.php">SignUp</a>
+
+        
+    </nav>
+</div>
+</div>
+	<div class="container">
+	<form action="search1.php" method="POST">
+<label for="name">Search by Name</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+<form action="search2.php" method="POST">
+<label for="origin">Search by Origin</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+	<form action="search3.php" method="POST">
+<label for="destination">Search by Destination</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+<form action="search4.php" method="POST">
+<label for="Phon_no">Search by Phone Number</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+	<form action="search5.php" method="POST">
+<label for="CNIC">Search by CNIC</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+<form action="search6.php" method="POST">
+<label for="class">Search by Class</label>
+<input type="submit" name="submit" value="GO">
+</form>
+<br>
+<form action="search7.php" method="POST">
+<label for="Triptype">Search by Triptype</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+<form action="unbook.php" method="POST">
+<label for="unbook">UnBook your record</label>
+<input type="submit" name="submit" value="GO">
+</form><br>
+<form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a person:</option>
+   <option value="1">Admin</option>
+  <option value="2">Haroon</option>
+  <option value="3">Hamza</option>
+  <option value="4">Huzaifa</option>
+  </select>
+</form>
+<br>
+<div id="txtHint" style="color: white;"><b>Person info will be listed here...</b></div>
+
+</div>
+   <footer>
+        
+        <a href="Home.php">Home</a>
+        <a href="#">&copy; 2019 | HR Airlines</a> 
+        <a href="#">  HR Airline Reservation System is Designed in 2019 By the Developer <b>Haroon Zahid Bajwa</b>
+        </a>
+    </footer>
+</body>
+</html>
